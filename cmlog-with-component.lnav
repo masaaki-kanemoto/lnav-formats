@@ -1,0 +1,6 @@
+#
+# @synopsis: cmlog
+# @description: Create simple MECM log table
+#
+
+;SELECT log_line, log_time, component, log_body from config_manager;

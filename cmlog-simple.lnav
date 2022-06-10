@@ -1,0 +1,6 @@
+#
+# @synopsis: cmlog-simple
+# @description: Create MECM log table with timestamp and body
+#
+
+;SELECT log_line, log_time, log_body from config_manager;

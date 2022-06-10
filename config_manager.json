@@ -1,0 +1,48 @@
+{
+    "config_manager" : {
+        "title" : "ConfigMgr",
+        "description" : "Microsoft Endpoint Configuration Manager's log format",
+        "url" : "https://docs.microsoft.com/mem/configmgr/",
+        "regex" : {
+            "std" : {
+                "pattern" : "(?<body>.*)\\$\\$<(?<component>.+)><(?<timestamp>\\d{2}-\\d{2}-\\d{4} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}-\\d{3})><thread=(?<thread_id>.+)>"
+            },
+            "ccm" : {
+                "pattern" : "<\\!\\[LOG\\[(?<body>.+)\\]LOG\\]\\!><time=\"(?<timestamp>\\d{2}:\\d{2}:\\d{2}\\.\\d{3}-\\d{3}\" date=\"\\d{2}-\\d{2}-\\d{4})\" component=\"(?<component>.+)\" context=.* thread=\"(?<thread_id>.+)\" file=\"(?<source>.+)\">"
+            }
+        },
+        "timestamp-format" : [ "%m-%d-%Y %H:%M:%S.%L-%Z", "%H:%M:%S.%L-%Z\" date=\"%m-%d-%Y" ],
+        "level-field" : "body",
+        "level" : {
+            "error" : "ERROR: |Error: ",
+            "warning" : "WARN: |Sync failed: ",
+            "info" : "INFO: "
+        },
+        "value" : {
+            "body" : {
+                "kind" : "string",
+                "identifier" : false
+            },
+            "component" : {
+                "kind" : "string",
+                "identifier" : true
+            },
+            "thread_id" : {
+                "kind" : "string",
+                "identifier" : true
+            },
+            "source" : {
+                "kind" :"string",
+                "identifier" : true
+            }
+        },
+        "sample" : [
+            {
+                "line" : "Retrieving properties from the site control file.  $$<SMS_CLIENT_CONFIG_MANAGER><04-12-2022 12:00:50.141-540><thread=5308 (0x14BC)>"
+            },
+            {
+                "line" : "<![LOG[SuperPeer: Startup task is starting...]LOG]!><time=\"17:19:33.877-540\" date=\"04-01-2022\" component=\"ContentAccess\" context=\"\" type=\"1\" thread=\"5736\" file=\"SuperPeerSystemTasks.cpp:34\">"
+            }
+        ]
+    }
+}
