@@ -15,7 +15,7 @@
         "level-field" : "body",
         "level" : {
             "error" : "ERROR: |Error: ",
-            "warning" : "WARN: |Sync failed: ",
+            "warning" : "WARN: |WARNING: |Sync failed: ",
             "info" : "INFO: "
         },
         "value" : {
