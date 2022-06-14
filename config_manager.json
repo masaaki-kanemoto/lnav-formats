@@ -9,9 +9,12 @@
             },
             "ccm" : {
                 "pattern" : "<\\!\\[LOG\\[(?<body>.+)\\]LOG\\]\\!><time=\"(?<timestamp>\\d{2}:\\d{2}:\\d{2}\\.\\d{3}-\\d{3}\" date=\"\\d{2}-\\d{2}-\\d{4})\" component=\"(?<component>.+)\" context=.* thread=\"(?<thread_id>.+)\" file=\"(?<source>.+)\">"
+            },
+            "memlabs" : {
+                "pattern" : "<\\!\\[LOG\\[(?<body>.+)\\]LOG\\]\\!><time=\"(?<timestamp>\\d{2}:\\d{2}:\\d{2}\\.\\d{3}\" date=\"\\d{2}-\\d{2}-\\d{4})\" component=\"(?<component>.+)\" context=.* thread=\"(?<thread_id>.+)\" file=\"(?<source>.+)\">"
             }
         },
-        "timestamp-format" : [ "%m-%d-%Y %H:%M:%S.%L-%Z", "%H:%M:%S.%L-%Z\" date=\"%m-%d-%Y" ],
+        "timestamp-format" : [ "%m-%d-%Y %H:%M:%S.%L-%Z", "%H:%M:%S.%L-%Z\" date=\"%m-%d-%Y", "%H:%M:%S.%L\" date=\"%m-%d-%Y" ],
         "level-field" : "body",
         "level" : {
             "error" : "ERROR: |Error: ",
@@ -42,6 +45,9 @@
             },
             {
                 "line" : "<![LOG[SuperPeer: Startup task is starting...]LOG]!><time=\"17:19:33.877-540\" date=\"04-01-2022\" component=\"ContentAccess\" context=\"\" type=\"1\" thread=\"5736\" file=\"SuperPeerSystemTasks.cpp:34\">"
+            },
+            {
+                "line" : "<![LOG[MemLabs version 220505 Initializing]LOG]!><time=\"19:56:06.111\" date=\"06-06-2022\" component=\"Common\" context=\"Common.ps1\" type=\"1\" thread=\"22\" file=\"Common.ps1: line 3333\">"
             }
         ]
     }
