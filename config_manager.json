@@ -24,7 +24,10 @@
         "value" : {
             "body" : {
                 "kind" : "string",
-                "identifier" : false
+                "identifier" : false,
+                "action-list" : [
+                    "dump_cm_log"
+                ]
             },
             "component" : {
                 "kind" : "string",
@@ -37,6 +40,15 @@
             "source" : {
                 "kind" :"string",
                 "identifier" : true
+            }
+        },
+        "action": {
+            "dump_cm_log" : {
+                "label" : "Show Additional Info",
+                "capture-output" : true,
+                "cmd" : [
+                    "cmlog-helper.sh"
+                ]
             }
         },
         "sample" : [
