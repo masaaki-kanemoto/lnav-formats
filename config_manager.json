@@ -13,11 +13,20 @@
             "memlabs" : {
                 "pattern" : "<\\!\\[LOG\\[(?<body>.+)\\]LOG\\]\\!><time=\"(?<timestamp>\\d{2}:\\d{2}:\\d{2}\\.\\d{3}\" date=\"\\d{2}-\\d{2}-\\d{4})\" component=\"(?<component>.+)\" context=.* thread=\"(?<thread_id>.+)\" file=\"(?<source>.+)\">"
             },
-            "mpsetup" : {
+            "setup1" : {
                 "pattern" : "<(?<timestamp>\\d{2}/\\d{2}/\\d{2} \\d{2}:\\d{2}:\\d{2})> (?<body>.*)"
+            },
+            "setup2" : {
+                "pattern" : "<(?<timestamp>\\d{2}-\\d{2}-\\d{4} \\d{2}:\\d{2}:\\d{2})> (?<body>.*)"
             }
         },
-        "timestamp-format" : [ "%m-%d-%Y %H:%M:%S.%L-%Z", "%H:%M:%S.%L-%Z\" date=\"%m-%d-%Y", "%H:%M:%S.%L\" date=\"%m-%d-%Y", "%m/%d/%y %H:%M:%S" ],
+        "timestamp-format" : [
+            "%m-%d-%Y %H:%M:%S.%L-%Z",
+            "%H:%M:%S.%L-%Z\" date=\"%m-%d-%Y",
+            "%H:%M:%S.%L\" date=\"%m-%d-%Y",
+            "%m/%d/%y %H:%M:%S",
+            "%m-%d-%Y %H:%M:%S"
+        ],
         "level-field" : "body",
         "level" : {
             "error" : "ERROR: |Error: ",
@@ -66,6 +75,9 @@
             },
             {
                 "line" : "<04/24/22 22:53:09> SMSMP Setup Started...."
+            },
+            {
+                "line" : "<04-24-2022 22:47:21> Performance counter setup started...."
             }
         ]
     }
