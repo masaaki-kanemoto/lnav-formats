@@ -12,9 +12,12 @@
             },
             "memlabs" : {
                 "pattern" : "<\\!\\[LOG\\[(?<body>.+)\\]LOG\\]\\!><time=\"(?<timestamp>\\d{2}:\\d{2}:\\d{2}\\.\\d{3}\" date=\"\\d{2}-\\d{2}-\\d{4})\" component=\"(?<component>.+)\" context=.* thread=\"(?<thread_id>.+)\" file=\"(?<source>.+)\">"
+            },
+            "mpsetup" : {
+                "pattern" : "<(?<timestamp>\\d{2}/\\d{2}/\\d{2} \\d{2}:\\d{2}:\\d{2})> (?<body>.*)"
             }
         },
-        "timestamp-format" : [ "%m-%d-%Y %H:%M:%S.%L-%Z", "%H:%M:%S.%L-%Z\" date=\"%m-%d-%Y", "%H:%M:%S.%L\" date=\"%m-%d-%Y" ],
+        "timestamp-format" : [ "%m-%d-%Y %H:%M:%S.%L-%Z", "%H:%M:%S.%L-%Z\" date=\"%m-%d-%Y", "%H:%M:%S.%L\" date=\"%m-%d-%Y", "%m/%d/%y %H:%M:%S" ],
         "level-field" : "body",
         "level" : {
             "error" : "ERROR: |Error: ",
@@ -60,6 +63,9 @@
             },
             {
                 "line" : "<![LOG[MemLabs version 220505 Initializing]LOG]!><time=\"19:56:06.111\" date=\"06-06-2022\" component=\"Common\" context=\"Common.ps1\" type=\"1\" thread=\"22\" file=\"Common.ps1: line 3333\">"
+            },
+            {
+                "line" : "<04/24/22 22:53:09> SMSMP Setup Started...."
             }
         ]
     }
